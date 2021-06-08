@@ -1,2 +1,2 @@
-# AI-for-Trading-Narodegree
+# AI-for-Trading
 Offered by Udacity
