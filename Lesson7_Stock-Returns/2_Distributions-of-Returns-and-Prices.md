@@ -1,0 +1,1 @@
+![Distributions_of_Returns_and_Prices](/Lesson7_Stock-Returns/images/Distributions_of_Returns_and_Prices.jpeg)
