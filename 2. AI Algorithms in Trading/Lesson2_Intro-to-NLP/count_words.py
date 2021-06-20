@@ -6,16 +6,15 @@ def count_words(text):
     text = text.lower()
     # TODO: Split text into tokens (words), leaving out punctuation
     # (Hint: Use regex to split on non-alphanumeric characters)
-    text_list = re.split('[^a-zA-Z]', text)
-    # text_list = re.sub(f'[,!?;.-]', ' ', text).split(' ')
+    words = re.sub('[^a-zA-Z]', ' ',text).split()
 
     # TODO: Aggregate word counts using a dictionary
-    for word in text_list:
+    for word in words:
         if word in counts.keys():
             counts[word] += 1
         else:
             counts[word] = 1
-    counts.pop('', None)
+
     return counts
 
 
