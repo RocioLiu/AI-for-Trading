@@ -16,11 +16,18 @@ def get_most_volatile(prices):
         ticker symbol for the most volatile stock
     """
     # TODO: Fill in this function.
+    prices.date = pd.to_datetime(prices.date)
+    prices = prices.sort_values(['ticker', 'date'], ascending=[True, True])
     tickers = prices.ticker.unique()
     volatility = {}
 
     for i in tickers:
-        volatility[i] = (prices.loc[prices['ticker'] == i, 'price']).std()
+        # calculate log return
+        price_i = (prices.loc[prices['ticker'] == i, 'price'])
+        log_return = price_i / price_i.shift(1)
+
+        # calculate the volatility
+        volatility[i] = log_return.std()
 
     most_vol_ticker = max(volatility, key=volatility.get)
 
